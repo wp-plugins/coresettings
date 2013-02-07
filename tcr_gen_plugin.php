@@ -1,20 +1,29 @@
 <?php
 /*
-Plugin Name: TCR Setup & Settings
+Plugin Name: Core Setup and Settings
 License: GPL
 Version: 1.0.0
 Plugin URI: http://thecellarroom.net
-Author: The Cellar Room Limited
+Author: TheCellarRoom
+Contributor: TheCellarRoom
 Author URI: http://www.thecellarroom.net
-Copyright (c) 2013 The Cellar Room Limited
 
-Description: settings, filters and options
-*Removes and adds better fields to user profile
-*Removes Admin bar
-*Removes wp-pagenavi + google sitemap styles from head
-*Removes excess from wordpress head.
-*Autocorrects page/post titles
-*change to default cookie timeout setting
+== Description: ==
+
+ A plugin for some basic settings, filters and options
+ 
+* Removes and adds better fields to user profile
+* Removes Admin bar
+* Removes wp-pagenavi + google sitemap styles from head
+* Removes excess from wordpress head.
+* Autocorrects page/post titles
+* Auto captialise letters after full stops
+* Change to default cookie timeout setting to two weeks
+* Add all settings page
+* Convert @usernames to twitter links
+* Convert #hastags to twitter searches
+
+
 */
 ###################################################################################
 defined( 'ABSPATH' ) or die();
@@ -141,7 +150,7 @@ if(isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) 
 <br/>
 
 <input id="tcr_activ_junk3" name="tcr_activ_junk3" type="checkbox" value="1" <?php checked( '1', get_option( 'tcr_activ_junk3' ) ); ?> />
-<label for="tcr_activ_junk3">Remove wlmanifestr link from head?</label>
+<label for="tcr_activ_junk3">Remove wlmanifest link from head?</label>
 <br/>
 
 <input id="tcr_activ_junk4" name="tcr_activ_junk4" type="checkbox" value="1" <?php checked( '1', get_option( 'tcr_activ_junk4' ) ); ?> />
@@ -153,11 +162,11 @@ if(isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) 
 <br/>
 
 <input id="tcr_activ_profile" name="tcr_activ_profile" type="checkbox" value="1" <?php checked( '1', get_option( 'tcr_activ_profile' ) ); ?> />
-<label for="tcr_activ_profile">Remove junk from the user page?</label>
+<label for="tcr_activ_profile">Remove junk from the user page jabber etc?</label>
 <br/>
 
 <input id="tcr_activ_title" name="tcr_activ_title" type="checkbox" value="1" <?php checked( '1', get_option( 'tcr_activ_title' ) ); ?> />
-<label for="tcr_activ_title">Activate Title Autofix?</label>
+<label for="tcr_activ_title">Activate Title Case Autofix?</label>
 <br/>
 
 <input id="tcr_activ_capcon" name="tcr_activ_capcon" type="checkbox" value="1" <?php checked( '1', get_option( 'tcr_activ_capcon' ) ); ?> />
@@ -165,8 +174,8 @@ if(isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) 
 <br/>
 
 <input id="tcr_dereg_pagenavi" name="tcr_dereg_pagenavi" type="checkbox" value="1" <?php checked( '1', get_option( 'tcr_dereg_pagenavi' ) ); ?> />
-<label for="tcr_dereg_pagenavi">Using pageNavi plugin + google sitemap plugin; Remove the styles for speed improvemnt? </label>
-<p>copy the CSS from these plugins into your themes css to help minimise things loading and improve site speed</p>
+<label for="tcr_dereg_pagenavi">Using pageNavi plugin + google sitemap plugin; Remove the styles for speed improvemnt? 
+<small>copy the CSS from these plugins into your themes css to help minimise things loading and improve site speed</small></label>
 <br/>
 
 <input id="tcr_remember_me" name="tcr_remember_me" type="checkbox" value="1" <?php checked( '1', get_option( 'tcr_remember_me' ) ); ?> />
@@ -174,7 +183,7 @@ if(isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) 
 <br/>
 
 <input id="tcr_authorfilter" name="tcr_authorfilter" type="checkbox" value="1" <?php checked( '1', get_option( 'tcr_authorfilter' ) ); ?> />
-<label for="tcr_authorfilter">View admin author filter?</label>
+<label for="tcr_authorfilter">View admin author filter in posts page?</label>
 <br/>
 
 <input id="tcr_twittername" name="tcr_twittername" type="checkbox" value="1" <?php checked( '1', get_option( 'tcr_twittername' ) ); ?> />
@@ -200,8 +209,8 @@ if(isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) 
 }
 // Some filters
 
-add_filter('wp_mail_from'		,get_option( $opt_name['tcr_email_from']));
-add_filter('wp_mail_from_name'	,get_option( $opt_name['tcr_email_from_name']));
+// add_filter('wp_mail_from'		,get_option( $opt_name['tcr_email_from']));
+// add_filter('wp_mail_from_name'	,get_option( $opt_name['tcr_email_from_name']));
 
 ###################################################################################
 
@@ -266,7 +275,18 @@ add_filter('the_title'		, 'lowertitle');
 add_filter('title_save_pre'	, 'fixtitle');
 add_filter('the_title'		, 'fixtitle');
 
-//your migrate stuff here
+}
+
+###################################################################################
+if(!get_option('tcr_activ_capcon') ) {
+// no nothing here
+} else { 
+function TCR_CL_replace_content($content)
+{
+$content=preg_replace_callback( '|(?:\.)(?:\s*)(\w{1})|Ui',create_function('$matches', 'return ". ".strtoupper($matches[1]);'),ucfirst($content)); 
+return $content;
+}
+add_filter('the_content','TCR_CL_replace_content');
 }
 ###################################################################################
 

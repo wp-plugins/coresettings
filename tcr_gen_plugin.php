@@ -12,7 +12,7 @@ License: GPL
 Version: 1.0.2
 Plugin URI: http://thecellarroom.net
 Author: TheCellarRoom
-Contributor: TheCellarRoom
+Contributors: thecellarroom (http://www.thecellarroom.net)
 Author URI: http://www.thecellarroom.net
 
 == Description: ==

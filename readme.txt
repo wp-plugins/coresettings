@@ -1,12 +1,14 @@
 === Plugin Name ===
-Contributors: TCR, TheCellarRoom
-Donate link: http://www.thecellarroom.net/plugins/about.php
+
+Contributors: TheCellarRoom (http://www.thecellarroom.net)
+Author: TheCellarRoom
+Donate link: http://gumroad.com/TheCellarRoom
+Tags: content, options, utility, multi use,
+Requires at least: 3.0.1
+Tested up to: 4.0
+Stable tag: 1.0.2
 License: GPL
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Requires at least: 3.0.1
-Tested up to: 3.5.1
-Stable tag: 1.0.1
-Tags: content, options, utility, multi use
 
  A utility plugin for some basic settings, filters and options
  
@@ -45,6 +47,11 @@ And we'll answer
 none
 
 == Changelog ==
+
+= 1.0.2 =
+* bump to 4.0
+* update urls
+
 
 = 1.0.1 =
 * fixing some of the readme text data

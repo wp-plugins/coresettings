@@ -1,6 +1,6 @@
 === Plugin Name ===
 
-Contributors: thecellarroom (http://www.thecellarroom.net)
+Contributors: thecellarroom
 Author: TheCellarRoom
 Donate link: http://gumroad.com/TheCellarRoom
 Tags: content, options, utility, multi use,

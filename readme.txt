@@ -5,7 +5,7 @@ Author: TheCellarRoom
 Donate link: http://gumroad.com/TheCellarRoom
 Tags: content, options, utility, multi use,
 Requires at least: 3.0.1
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.0.2
 License: GPL
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -20,8 +20,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Removes Admin bar
 * Removes wp-pagenavi + google sitemap styles from head - copy the style to your theme.css instead.
 * Removes excess from wordpress head link rels, generator etc etc.
-* Autocorrects page/post titles for captialisation
-* Auto captialise the first letter after full stops in post content
+* Auto-corrects page/post titles for capitalisation
+* Auto-capitalise the first letter after full stops in post content
 * Change to default cookie timeout setting to two weeks
 * Add all settings page
 * Convert @usernames to twitter links

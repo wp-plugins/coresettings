@@ -6,7 +6,7 @@ Donate link: http://gumroad.com/TheCellarRoom
 Tags: content, options, utility, multi use,
 Requires at least: 3.0.1
 Tested up to: 4.2
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPL
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ And we'll answer
 none
 
 == Changelog ==
+
+= 1.0.3 =
+* bump to 4.2
 
 = 1.0.2 =
 * bump to 4.0

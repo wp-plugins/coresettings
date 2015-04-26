@@ -9,7 +9,7 @@
 /*
 Plugin Name: Core Setup and Settings
 License: GPL
-Version: 1.0.2
+Version: 1.0.3
 Plugin URI: http://thecellarroom.net
 Author: TheCellarRoom
 Contributors: thecellarroom (http://www.thecellarroom.net)
